@@ -2,6 +2,22 @@
 
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
+
+  // var jsonPics = localStorage.getItem('stored');
+  // var catalogPics = JSON.parse(jsonPics);
+
+  var catalog = document.getElementById('items');
+  
+  for(var i in Product.allProducts){
+
+    var catalogItem = document.createElement('option');
+    catalogItem.filePath = Product.allProducts[i].filePath;
+    catalogItem.textContent =Product.allProducts[i].name;
+    catalog.appendChild(catalogItem);
+
+  }
+  catalog.appendChild(catalogItem);
+
 }
 
 function handleSubmit(event) {
@@ -12,11 +28,14 @@ function handleSubmit(event) {
   saveCartToLocalStorage();
   updateCounter();
   updateCartPreview();
-    
+
 }
 
 function addSelectedItemToCart() {
+
   // TODO: Add the selected item and quantity to the cart
+
+  // event listener for the click of the button, push clickrd item into cart constructor
 }
 
 function saveCartToLocalStorage() {
