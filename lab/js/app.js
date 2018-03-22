@@ -2,11 +2,20 @@
 
 // TODO: Create a "Cart" constructor that holds quantity, item, an an array of items in the cart
 
+//Cart Constructor
+var Cart = function(item, quantity) {
+  this.item = item;
+  this.quantity = quantity;
+  Cart.allItems.push(this);
+}
+//array of items and their quantities
+Cart.allItems =[];
 
 // Product Contructor
 var Product = function(filePath, name) {
   this.filePath = filePath;
   this.name = name;
+  this.quantity = 0;
   Product.allProducts.push(this);
 };
 Product.allProducts = [];
@@ -34,5 +43,6 @@ function generateCatalog() {
   new Product('assets/wine-glass.jpg', 'Wine Glass');
 }
 
+console.log(generateCatalog);
 // Initialize the app
 generateCatalog();
