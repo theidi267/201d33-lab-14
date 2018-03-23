@@ -1,5 +1,6 @@
 'use strict';
 
+
 function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
 
@@ -23,27 +24,22 @@ function populateForm() {
 function handleSubmit(event) {
   // TODO: Prevent the page from reloading
     event.preventDefault();
-    for(var i in Product.allProducts){
-      if(event.target.items.value === Product.allProducts[i].name) {
-        console.log(Product.allProducts[i].name);
-      // Cart.allItems[i].quantity++;
-      // Cart.allItems[i].push(Product.allProducts[i].name);
-    }
-  }
-  
-  // Do all the things
-  addSelectedItemToCart();
-  saveCartToLocalStorage();
-  updateCounter();
-  updateCartPreview();
-
+    // for(var i in Product.allProducts){
+    //   if(event.target.items.value === Product.allProducts[i].name) {
+    //     Cart.allItems;
+        // Do all the things
+        addSelectedItemToCart();
+        saveCartToLocalStorage();
+        updateCounter();
+        updateCartPreview();
 }
 
 function addSelectedItemToCart() {
-
   // TODO: Add the selected item and quantity to the cart
-
-  // event listener for the click of the button, push clickrd item into cart constructor
+  var selectedQuantity = document.getElementById('quantity').value;
+  var selectedItem = document.getElementById('items').value;
+  new Cart(selectedItem, selectedQuantity);
+  // event listener for the click of the button, push clicked item into cart constructor
 }
 
 function saveCartToLocalStorage() {
@@ -64,10 +60,7 @@ function updateCartPreview() {
 // TODO: Put an event listener on the #catalog so that you can run the "handleSubmit" method when user submits the form (adding an item to their cart)
 
 var submitButton = document.getElementById('catalog');
-
 submitButton.addEventListener('submit', handleSubmit);
-
-console.log(handleSubmit);
 
 
 // Start it up ...
